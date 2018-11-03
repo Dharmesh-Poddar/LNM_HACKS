@@ -100,15 +100,7 @@ button:focus {
     height: 400px;
   }
 }
-.movie-card[data-movie="Blade Runner"] {
-  background-image: url(http://digitalspyuk.cdnds.net/15/47/1600x800/landscape-1447754794-harrison-ford-blade-runner.jpg);
-}
-.movie-card[data-movie="Back to the Future"] {
-  background-image: url("http://www.blastr.com/sites/blastr/files/back-to-the-future-part-ii-original.jpg");
-}
-.movie-card[data-movie="Akira"] {
-  background-image: url("http://www.dvdactive.com/images/reviews/screenshot/2011/5/akirabdcap8_original.jpg");
-}
+
 .movie-card__overlay {
   width: 100%;
   height: 100%;
