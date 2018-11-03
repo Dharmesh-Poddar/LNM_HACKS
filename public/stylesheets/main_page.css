@@ -1,3 +1,5 @@
+
+
 body{
  background-color:black;
  
@@ -22,7 +24,9 @@ body{
 
 }
 .jumbotron{
-	background-color: #232b2b;
+  background-color: #232b2b;
+  margin-bottom: 0px;
+  
 }
 
 
@@ -207,8 +211,8 @@ h1, h2, h3 {
 }
 
 .btn-outline {
-  background-color: transparent;
-  border: 3px solid #ffffff;
+  background-color: #A9A9A9;
+  border: 3px solid #696969;
 }
 
 .btn::before {
@@ -218,7 +222,7 @@ h1, h2, h3 {
 }
 
 .btn-outline:hover {
-  border-color: #2a9fff;
-  color: #2a9fff;
+  border-color: green;
+  color: green;
   box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
 }
