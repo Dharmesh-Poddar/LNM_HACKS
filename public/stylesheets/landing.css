@@ -47,23 +47,23 @@ body h1{
 }
 
 .slideshow li:nth-child(1) { 
-  background-image: url('images/newwool.jpg') 
+  background-image: url('../images/newwool.jpg') 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url('images/necessary.jpg');
-  animation-delay: 5s; 
+  background-image: url('../images/necessary.jpg');
+  animation-delay: 4s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url('images/sanju.jpg');
-  animation-delay: 10s; 
+  background-image: url('../images/sanju.jpg');
+  animation-delay: 8s; 
 }
 .slideshow li:nth-child(4) { 
-  background-image: url(images/mi.jpg);
-  animation-delay: 15s; 
+  background-image: url(../images/mi.jpg);
+  animation-delay: 12s; 
 }
 .slideshow li:nth-child(5) { 
-  background-image: url(images/angelica.jpg);
-  animation-delay: 15s; 
+  background-image: url(../images/angelica.jpg);
+  animation-delay: 16s; 
 }
 
 @keyframes imageAnimation { 

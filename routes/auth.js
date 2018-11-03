@@ -4,20 +4,20 @@ const passport = require('passport');
 const User = require('../models/user');
 
 
-app.get("/login", (req, res) => {
+router.get("/login", (req, res) => {
     res.render("login");
 });
 
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/index',
+    successRedirect: '/movies',
     failureRedirect: '/login'
 }), function (req, res) {
 
 });
 
 
-app.get("/signup", (req, res) => {
+router.get("/signup", (req, res) => {
     res.render("signup");
 });
 
@@ -30,7 +30,7 @@ router.post('/signup', function (req, res) {
         }
         passport.authenticate('local')(req, res, function () {
             req.flash("success", "Welcome " + user.username);
-            res.redirect('/index');
+            res.redirect('/movies');
         });
     });
 });

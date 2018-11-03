@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
+const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
@@ -10,6 +11,7 @@ const User = require('./models/user');
 
 // REQUIRING ROUTES
 const authRoutes = require('./routes/auth');
+const movieRoutes = require('./routes/movies');
 
 
 // CONNECTING TO DATABASE
@@ -46,6 +48,7 @@ app.use(function (req, res, next) {
 
 // REQUIRING ROUTES
 app.use(authRoutes);
+app.use(movieRoutes);
 
 
 app.get("/", (req, res) => {
