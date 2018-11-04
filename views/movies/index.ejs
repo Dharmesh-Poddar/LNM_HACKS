@@ -15,7 +15,10 @@
 
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
+  
+  <!-- Semantic UI CDN Links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/grid.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/card.min.css">
    
 </head>
 <body>
@@ -73,23 +76,42 @@
   <!--===========================================================================================================================================Trending Section====================================================================================================================================================================-->
 
   <h1 style="font-family:Nunito,arial; color:#000000;text-align:center;">TRENDING MOVIES</h1>
+  <br>
 
 
-<div id="movie-card-list" class="animated zoomIn" style="animation-delay:1s;">
-  <div class="movie-card ">
-    <div class="movie-card__overlay"></div>
-    <div class="movie-card__content">
-      <div class="movie-card__header">
-        <h1 class="movie-card__title">Blade Runner</h1>
-        <h4 class="movie-card__info">(1982) Sci-Fi, Thriller</h4>
-      </div>
-      <p class="movie-card__desc">A blade runner must pursue and try to terminate four replicants who stole a ship in space and have returned to Earth to find their creator.</p>
-      <button class="btn btn-outline movie-card__button" type="button">Watch Trailer</button>
-    </div>
-  </div>
-  
-  </div>
- 
+<div class="ui stackable grid container" style="margin-left: 7%;">
+	<% data["results"].forEach(function(movie){ %>
+		<div class="five wide tablet four wide computer column">
+			<div class="ui fluid card">
+				<div class="image">
+					<% if (movie["poster_path"] === null) { %>
+						<img src="https://www.directv.com/img/movies.jpg">
+					<% } else { %>
+						<img src='https://image.tmdb.org/t/p/w500/<%= movie["poster_path"] %>'>
+					<% } %>
+				</div>
+				<div class="content">
+	      			<div class="header">
+	      				<%= movie["original_title"] %>
+	      			</div>
+	      			<div class="meta">
+	      				<a href='/movies/<%= movie["id"] %>'>See More</a>
+	      			</div>
+	      		</div>
+	      		<div class="extra content">
+	      			<span class="right floated">
+			        	Released:  <strong><%= movie["release_date"] %></strong>
+			      	</span>
+			      	<span>
+				        <i class="star icon"></i>
+				        <strong><%= movie["vote_average"] %></strong>
+				    </span>
+	      		</div>
+			</div>
+		</div>
+	<% }); %>
+</div>
+
 
 
  <!--=================================================================================
