@@ -9,7 +9,12 @@
 
 
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/showpage.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/showpage.css">
+  <style>
+    .hero:before {
+      background: url("https://image.tmdb.org/t/p/w780/<%= data['backdrop_path'] %>");
+    }
+  </style>
 
 </head>
 <body>
@@ -17,15 +22,13 @@
   
   <div class="container">
     
-    <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_cover.jpg" alt="cover" class="cover" /></a>
+    <img src="https://image.tmdb.org/t/p/w185/<%= data['poster_path'] %>" alt="cover" class="cover" />
         
     <div class="hero">
             
       <div class="details">
       
-        <div class="title1">The Hobbit <span>PG-13</span></div>
-
-        <div class="title2">The Battle of the Five Armies</div>    
+        <div class="title1" style="color:#fff;"><h1><strong><%= data.original_title %></strong></h1></div>  
         
         <fieldset class="rating">
     <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -41,20 +44,18 @@
   </fieldset>
 
 
-        
-        <span class="likes">109 likes</span>
+        <span style="color:#fff;"><strong><%= data["vote_average"] %></strong></span>
+        <span class="likes" style="color:#fff;"><strong><%= data.vote_count %> likes</strong></span>
         
       </div> <!-- end details -->
       
     </div> <!-- end hero -->
     
-    <div class="description">
-      
-    
-           <div class="column1">
-        <span class="tag">action</span>
-        <span class="tag">fantasy</span>
-        <span class="tag">adventure</span>
+    <div class="description"> 
+      <div class="column1">
+        <% data.genres.forEach(function(genre){ %>
+            <span class="tag"><%= genre.name %></span>
+        <% }); %>
       </div> <!-- end column1 -->
       
          
@@ -62,10 +63,10 @@
       
       <div class="column2">
         
-        <p>Bilbo Baggins is swept into a quest to reclaim the lost Dwarf Kingdom of Erebor from the fearsome dragon Smaug. Approached out of the blue by the wizard Gandalf the Grey, Bilbo finds himself joining a company of thirteen dwarves led by the legendary warrior, Thorin Oakenshield. Their journey will take them into the Wild; through... <a href="#">read more</a></p>
+        <p><%= data.overview %></p>
         
     
-           <button style="background-color: #696969;padding: 5px;border-radius: 10px;">Add to Watch Later</button>
+        <a href="/profile/add"><button style="background-color: #696969;padding: 5px;border-radius: 10px;">Add to Watch Later</button></a>
         
         
       </div> <!-- end column2 -->
